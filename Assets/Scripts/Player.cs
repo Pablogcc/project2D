@@ -13,11 +13,14 @@ public class Player : MonoBehaviour
     public float groundRadius = 0.1f; // Esta variable es el radio del círculo que se usará para verificar si el personaje está tocando el suelo.
     public LayerMask groundLayer; // Esta variable es para especificar qué capas se consideran suelo para el personaje.
 
+    private Animator animator; // Esta variable es para controlar las animaciones del personaje.
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     // El Start sucede cuando inicias el juego.
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>(); // Aquí accedemos al componente Rigidbody2D del personaje en Unity.
+        animator = GetComponent<Animator>(); // Aquí accedemos al componente Animator del personaje en Unity.
     }
 
     // Update is called once per frame
@@ -37,6 +40,12 @@ public class Player : MonoBehaviour
         {
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(move)); // Aquí actualizamos el parámetro "Speed" del Animator con el valor absoluto del movimiento para controlar las animaciones de caminar o correr. Abs hace que el valor sea positivo, sin importar la dirección del movimiento.
+        animator.SetFloat("VerticalVelocity", rb2D.linearVelocity.y); // Aquí actualizamos el parámetro "VerticalVelocity" del Animator con la velocidad vertical del Rigidbody2D para controlar las animaciones de salto o caída.
+        animator.SetBool("isGrounded", isGrounded); // Aquí actualizamos el parámetro "isGrounded" del Animator con el valor de isGrounded para controlar las animaciones relacionadas con estar en el suelo o en el aire.
+
+
     }
 
     private void FixedUpdate()
