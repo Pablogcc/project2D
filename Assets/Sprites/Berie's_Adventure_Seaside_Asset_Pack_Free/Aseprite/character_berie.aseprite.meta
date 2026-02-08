@@ -2,7 +2,72 @@ fileFormatVersion: 2
 guid: b7bdc0dabd9a9f84096dead16e6f031a
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack 1
+    second: {fileID: 7400000, guid: 124eea2566245be47b0ea8da595da96e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack 2
+    second: {fileID: 7400000, guid: 6e51d3aca3a72524e9e0fcfe40ac0768, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Death
+    second: {fileID: 7400000, guid: b140288ee905dad4dbdda424c6c301f2, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Fall
+    second: {fileID: 7400000, guid: ddc2fa9dcbcb40e4281de35d8057a2cd, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Grounded
+    second: {fileID: 7400000, guid: 23f2402e80fd30c499687f29a1bc99b3, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Hit
+    second: {fileID: 7400000, guid: feffbe5e991291e4f90fbd18f4959178, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle
+    second: {fileID: 7400000, guid: 994e712ef06ca954d820c860096a6e6e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle Poisoned
+    second: {fileID: 7400000, guid: 6b188e58e1718a74cbd53b78bac0c4c9, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Injured
+    second: {fileID: 7400000, guid: 92a96c594214a4d4da49ad1e718dec83, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Injured Poisoned
+    second: {fileID: 7400000, guid: 640a8d0a2fbd25d4cbb65924bb67254e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Jump
+    second: {fileID: 7400000, guid: b675a7fa1e1600346806c4f7f6c544c3, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Run
+    second: {fileID: 7400000, guid: 59d9a1933d87b6f4fa5214111685c46b, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Show Off
+    second: {fileID: 7400000, guid: 78488abcd6b85ac43a9ee5741ab8c3be, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +167,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 639061067074083666
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -2877,7 +2942,31 @@ ScriptedImporter:
     tileSetIndex: 0
     parentIndex: -1
   tileSets: []
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
