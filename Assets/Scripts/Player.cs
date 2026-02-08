@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer; // Esta variable es para especificar qué capas se consideran suelo para el personaje.
 
     private Animator animator; // Esta variable es para controlar las animaciones del personaje.
+
+    private int coins;
+    public TMP_Text textCoins;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     // El Start sucede cuando inicias el juego.
@@ -51,5 +56,37 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer); // Aquí sabemos si el personaje está tocando el suelo utilizando un círculo de verificación en la posición del groundCheck.
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            coins++;
+            textCoins.text = coins.ToString();
+        }
+
+        if (collision.transform.CompareTag("Spikes"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (collision.transform.CompareTag("Barrel"))
+        {
+            Vector2 knockbackDir = (rb2D.position - (Vector2)collision.transform.position).normalized;
+            rb2D.linearVelocity = Vector2.zero; // Detener el movimiento actual
+            rb2D.AddForce(knockbackDir * 3, ForceMode2D.Impulse); // Aplicar una fuerza de retroceso
+
+            BoxCollider2D[] colliders = collision.gameObject.GetComponents<BoxCollider2D>();
+
+            foreach (BoxCollider2D col in colliders)
+            {
+                col.enabled = false; // Desactivar el collider para evitar colisiones adicionales
+            }
+
+            collision.GetComponent<Animator>().enabled = true; // Activar la animación de destrucción del barril
+            Destroy(collision.gameObject, 0.5f);
+        }
     }
 }
