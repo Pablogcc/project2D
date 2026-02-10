@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
     private int coins;
     public TMP_Text textCoins;
 
+    public AudioSource audioSource; // Esta variable es para reproducir sonidos relacionados con el personaje, como recoger monedas o saltar.
+
+    public AudioClip coinClip; // Esta variable es para asignar el clip de sonido que se reproducirá al recoger una moneda.
+    public AudioClip barrelClip; // Esta variable es para asignar el clip de sonido que se reproducirá al interactuar con un barril.
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     // El Start sucede cuando inicias el juego.
     void Start()
@@ -62,6 +67,7 @@ public class Player : MonoBehaviour
     {
         if (collision.transform.CompareTag("Coin"))
         {
+            audioSource.PlayOneShot(coinClip); // Reproducir el sonido de la moneda al recogerla
             Destroy(collision.gameObject);
             coins++;
             textCoins.text = coins.ToString();
@@ -74,6 +80,7 @@ public class Player : MonoBehaviour
 
         if (collision.transform.CompareTag("Barrel"))
         {
+            audioSource.PlayOneShot(barrelClip);
             Vector2 knockbackDir = (rb2D.position - (Vector2)collision.transform.position).normalized;
             rb2D.linearVelocity = Vector2.zero; // Detener el movimiento actual
             rb2D.AddForce(knockbackDir * 3, ForceMode2D.Impulse); // Aplicar una fuerza de retroceso
